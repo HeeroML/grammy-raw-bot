@@ -3,8 +3,11 @@ import { run } from "@grammyjs/runner";
 require("dotenv").config();
 const bot = new Bot(process.env.TOKEN || ""); // <-- place your token inside this string
 import {responseTime, errorCount, userCount} from "./pm2";
+
+
 // 2. Reply to text messages with the raw data
 bot.use(responseTime)
+//@ts-ignore
 bot.use(userCount)
 bot.on("msg", async (ctx) => {
   if (ctx.message?.forward_from) {

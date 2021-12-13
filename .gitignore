@@ -77,3 +77,8 @@ typings/
 
 # Environments
 .env
+
+# Generated files from tsc
+.js
+index.js
+pm2.js
