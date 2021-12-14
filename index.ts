@@ -3,7 +3,7 @@ import { run } from "@grammyjs/runner";
 require("dotenv").config();
 const bot = new Bot(process.env.TOKEN || ""); // <-- place your token inside this string
 import {responseTime, errorCount, userCount} from "./pm2";
-
+import {escape} from 'html-escaper';
 
 // 2. Reply to text messages with the raw data
 bot.use(responseTime)
@@ -17,8 +17,9 @@ bot.on("msg", async (ctx) => {
         "</code>\nOwn User ID:\n<code>" +
         ctx.from.id +
         "</code>\n\n" +
-        "<b>Raw Update Data:</b>\n" +
-        JSON.stringify(ctx.update, null, 3),
+        "<b>Raw Update Data:</b>\n<code>" +
+        //@ts-ignore
+        escape(JSON.stringify(ctx.update, null, 3)) + "</code>",
       { parse_mode: "HTML" }
     );
   } else {
@@ -26,8 +27,9 @@ bot.on("msg", async (ctx) => {
       "<b>Own User ID:</b> <code>" +
         ctx.from?.id +
         "</code>\n\n" +
-        "<b>Raw Update Data:</b>\n" +
-        JSON.stringify(ctx.update, null, 3),
+        "<b>Raw Update Data:</b>\n<code>" +
+        //@ts-ignore
+        escape(JSON.stringify(ctx.update, null, 3))+ "</code>",
       { parse_mode: "HTML" }
     );
   }
