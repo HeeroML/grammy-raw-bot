@@ -1,6 +1,6 @@
 {
   "name": "grammy-raw-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Raw Reply's to Messages",
   "main": "index.ts",
   "scripts": {
