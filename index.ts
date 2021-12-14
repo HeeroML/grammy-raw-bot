@@ -18,7 +18,6 @@ bot.on("msg", async (ctx) => {
         ctx.from.id +
         "</code>\n\n" +
         "<b>Raw Update Data:</b>\n<code>" +
-        //@ts-ignore
         escape(JSON.stringify(ctx.update, null, 3)) + "</code>",
       { parse_mode: "HTML" }
     );
@@ -28,7 +27,6 @@ bot.on("msg", async (ctx) => {
         ctx.from?.id +
         "</code>\n\n" +
         "<b>Raw Update Data:</b>\n<code>" +
-        //@ts-ignore
         escape(JSON.stringify(ctx.update, null, 3))+ "</code>",
       { parse_mode: "HTML" }
     );
